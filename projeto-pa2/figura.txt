@@ -1,0 +1,6 @@
+dim 20 20
+brush @
+reta 0 0 14 20
+retangulo 2 2 14 14
+circulo 8 8 2 4
+
