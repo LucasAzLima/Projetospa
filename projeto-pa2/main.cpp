@@ -26,8 +26,8 @@ int main()
     ofstream fout;
 
     string ss;
-    fin.open("/home/lucas/PROJETOS-GIT/projeto-pa2/figura.txt");
-    fout.open("/home/lucas/PROJETOS-GIT/projeto-pa2/figuradese.txt");
+    fin.open("E:\\projeto-pa2\\figura.txt");
+    fout.open("E:\\projeto-pa2\\figuradese.txt");
 
 
     while(fin.good()){
@@ -62,10 +62,10 @@ int main()
 
             }
             else if(cmd.compare("retangulo")==0){
-                int altura, largura, x, y;
-                sstream >> x >> y >> altura >> largura;
+                int altura, largura, x, y, fillmodeR;
+                sstream >> x >> y >> altura >> largura >> fillmodeR;
                 if( altura!=0 && altura!=0) {
-                    figuras[1]->setparametrosretangulo(x,y,altura,largura);
+                    figuras[1]->setparametrosretangulo(x, y, altura, largura, fillmodeR);
                     figuras[1]->draw(s);
                     fout << s;
                     cout<<endl<<endl;}
@@ -75,12 +75,12 @@ int main()
             }
             else if(cmd.compare("circulo")==0){
 
-                int raio, fillmode, x, y;
-                sstream >> x >> y >> raio >> fillmode;
+                int raio, fillmodeC, x, y;
+                sstream >> x >> y >> raio >> fillmodeC;
                 if(raio >0 && (x - raio)>=0 && (y - raio)>=0 && (x + raio)<=s.getScreenX() && (y + raio)<=s.getScreenY()){
-                    figuras[0]->setparametroscirculo(x,y,raio,fillmode);
+                    figuras[0]->setparametroscirculo(x,y,raio,fillmodeC);
                     figuras[0]-> draw(s);
-                    fout << s;
+
                 }
                 else {
                     cout<<"parametro invalido"<<endl;
@@ -90,7 +90,7 @@ int main()
         }
 
     }
-
+    fout << s;
     for(int i=0; i<3; i++)delete figuras[i];
     fin.close();
     fout.close();

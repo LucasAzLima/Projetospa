@@ -9,32 +9,54 @@ circulo::circulo()
 
 }
 
+
 void circulo::draw(Screen &t)
 {   
-    t.reset();
-    const int width=raio;
-    const int length=raio;
+    t.clear();
 
-    for (int i=width; i >= 0; i--){
-        for(int j=length; j>=0; j--){
-            if ((int)sqrt(pow(i,2)+pow(j,2))==raio){
+    int x,y,a;
+    x=0;
+    y=raio;
+    a=1-raio;
 
-                t.setPixel(p1.getX() + j,p1.getY() + i);
-                t.setPixel(p1.getX() + j,p1.getY() - i);
-                t.setPixel(p1.getX() - j,p1.getY() + i);
-                t.setPixel(p1.getX() - j,p1.getY() - i);
-            }
+    pixel(x,y,t);
 
-            if (fillmode != 0 && (int)sqrt(pow(i,2)+pow(j,2))<raio){
+    while (x<y) {
+        if (a<0) {
+            a=a+2*x+3;
+            if (x*x +y*y - raio*raio<0) pixel(x,y,t);
+            x++;
 
-                t.setPixel(p1.getX() + j,p1.getY() + i);
-                t.setPixel(p1.getX() + j,p1.getY() - i);
-                t.setPixel(p1.getX() - j,p1.getY() + i);
-                t.setPixel(p1.getX() - j,p1.getY() - i);
-            }
+        } else {
+            if (x*x +y*y - raio*raio<0) pixel(x,y,t);
+            a=a+2*(x-y)+5;
+            if (x*x +y*y - raio*raio<0) pixel(x,y,t);
+            x++;
+            y--;
+
         }
-
-
+        pixel(x,y,t);
     }
+    if (fillmodeC !=0)for (int i=raio; i >= 0; i--){
+        for(int j=raio; j>=0; j--){
+            if ((int)sqrt(pow(i,2)+pow(j,2))<raio){
+
+                t.setPixel(p1.getX() + j,p1.getY() + i);
+                t.setPixel(p1.getX() + j,p1.getY() - i);
+                t.setPixel(p1.getX() - j,p1.getY() + i);
+                t.setPixel(p1.getX() - j,p1.getY() - i);
+            }}}
     cout<< t;
+}
+
+void circulo::pixel(int x, int y, Screen &t){
+    t.setPixel(p1.getX()+x,p1.getY()+y);
+    t.setPixel(p1.getX()+x,p1.getY()-y);
+    t.setPixel(p1.getX()-x,p1.getY()+y);
+    t.setPixel(p1.getX()-x,p1.getY()-y);
+    t.setPixel(p1.getX()+y,p1.getY()+x);
+    t.setPixel(p1.getX()+y,p1.getY()-x);
+    t.setPixel(p1.getX()-y,p1.getY()+x);
+    t.setPixel(p1.getX()-y,p1.getY()-x);
+
 }

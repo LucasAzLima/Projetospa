@@ -21,7 +21,6 @@ public:
     int  getScreenY();
     void setPixel(int x, int y);
     void clear();
-    void reset();
     void setBrush(char _brush);
     friend ostream& operator<<(ostream &os, Screen &t);
     friend istream& operator>>(istream &is, Screen &t);

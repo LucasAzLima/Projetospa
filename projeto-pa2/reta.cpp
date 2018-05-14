@@ -9,7 +9,7 @@ reta::reta(){   }
 
 void reta::draw(Screen &t)
 {
-    t.reset();
+    t.clear();
     float dx , dy, step;
     float x,y,x2,y2;
     float xin,yin;
@@ -18,8 +18,17 @@ void reta::draw(Screen &t)
     y = p1.getY();
     x2 =p2.getX();
     y2 = p2.getY();
-    dx = x2 - x;
-    dy = y2 - y;
+
+    if (y2<y) {
+        dx = x - x2;
+        dy = y - y2;
+    }
+    else {
+        dx = x2 - x;
+        dy = y2 - y;
+    }
+
+
 
     if(dx>=dy) step=dx;
     else       step=dy;
@@ -28,10 +37,15 @@ void reta::draw(Screen &t)
     yin = dy / (float)step;
 
     for(int k = 0; k < step; k++){
-
-        t.setPixel((int)x,(int)y);
-        x += xin;
-        y += yin;
+        if (y2<y) {
+            t.setPixel((int)x2,(int)y2);
+            x2 -= xin;
+            y2 -= yin;
+        } else {
+            t.setPixel((int)x,(int)y);
+            x += xin;
+            y += yin;
+        }
     }
     cout<<t;
 }

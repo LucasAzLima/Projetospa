@@ -7,12 +7,12 @@ class figura
 public:
     ponto p1;
     ponto p2;
-    int altura, largura, xr, yr, raio, fillmode;
+    int altura, largura, xr, yr, raio, fillmodeC,fillmodeR;
 public:
     figura();
-    void setparametrosretangulo(int _xr, int _yr, int _altura, int _largura);
+    void setparametrosretangulo(int _xr, int _yr, int _altura, int _largura, int _fillmodeR);
     void setparametrosreta(int _x, int _y, int _x2, int _y2);
-    void setparametroscirculo(int _xr, int _yr, int _raio, int _fillmode);
+    void setparametroscirculo(int _xr, int _yr, int _raio, int _fillmodeC);
     virtual void draw(Screen &t)=0;
 };
 

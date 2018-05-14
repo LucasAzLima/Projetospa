@@ -27,11 +27,6 @@ void Screen::setPixel(int x, int y)
 
 void Screen::clear()
 {
-    system("clear");
-}
-
-void Screen::reset()
-{
     mat = vector<vector<char>>(nlin, vector<char>(ncol,' '));
 }
 
