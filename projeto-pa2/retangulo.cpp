@@ -6,6 +6,14 @@
 
 using namespace std;
 
+retangulo::retangulo(int _xr, int _yr, int _altura, int _largura, int _fillmodeR)
+{
+    p1.setXY(_xr,_yr);
+    altura = _altura;
+    largura = _largura;
+    fillmodeR = _fillmodeR;
+}
+
 void retangulo::draw(Screen &t)
 {
     t.clear();

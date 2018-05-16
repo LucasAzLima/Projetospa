@@ -35,16 +35,6 @@ void Screen::setBrush(char _brush)
     brush = _brush;
 }
 
-istream& operator>>(istream &is,  Screen &t)
-{
-    for(int i=0; i<t.getScreenY(); i++){
-        for(int j=0; j<t.getScreenX(); j++){
-            is >> t.mat[i][j];
-        }
-
-    }
-    return is;
-}
 
 ostream& operator<<(ostream &os, Screen &t)
 {

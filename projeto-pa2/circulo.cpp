@@ -4,9 +4,13 @@
 
 using namespace std;
 
-circulo::circulo()
+circulo::circulo(int _xr, int _yr, int _raio, int _fillmodeC)
 {
-
+    p1.setXY(_xr,_yr);
+    xr=_xr;
+    yr= _yr;
+    raio=_raio ;
+    fillmodeC=_fillmodeC;
 }
 
 
@@ -37,15 +41,6 @@ void circulo::draw(Screen &t)
         }
         pixel(x,y,t);
     }
-    if (fillmodeC !=0)for (int i=raio; i >= 0; i--){
-        for(int j=raio; j>=0; j--){
-            if ((int)sqrt(pow(i,2)+pow(j,2))<raio){
-
-                t.setPixel(p1.getX() + j,p1.getY() + i);
-                t.setPixel(p1.getX() + j,p1.getY() - i);
-                t.setPixel(p1.getX() - j,p1.getY() + i);
-                t.setPixel(p1.getX() - j,p1.getY() - i);
-            }}}
     cout<< t;
 }
 

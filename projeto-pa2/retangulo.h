@@ -8,7 +8,7 @@ class retangulo: public figura
 {
 
 public:
-
+    retangulo(int _xr, int _yr, int _altura, int _largura, int _fillmodeR);
     void draw(Screen &t);
 };
 

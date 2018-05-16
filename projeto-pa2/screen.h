@@ -23,7 +23,7 @@ public:
     void clear();
     void setBrush(char _brush);
     friend ostream& operator<<(ostream &os, Screen &t);
-    friend istream& operator>>(istream &is, Screen &t);
+
 };
 
 #endif // SCREEN_H

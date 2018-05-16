@@ -5,8 +5,11 @@
 #include "ponto.h"
 using namespace std;
 
-reta::reta(){   }
-
+reta::reta(int _x, int _y, int _x2, int _y2)
+{
+    p1.setXY(_x,_y);
+    p2.setXY(_x2,_y2);
+}
 void reta::draw(Screen &t)
 {
     t.clear();
@@ -18,7 +21,6 @@ void reta::draw(Screen &t)
     y = p1.getY();
     x2 =p2.getX();
     y2 = p2.getY();
-
     if (y2<y) {
         dx = x - x2;
         dy = y - y2;
@@ -37,6 +39,7 @@ void reta::draw(Screen &t)
     yin = dy / (float)step;
 
     for(int k = 0; k < step; k++){
+
         if (y2<y) {
             t.setPixel((int)x2,(int)y2);
             x2 -= xin;
@@ -46,6 +49,7 @@ void reta::draw(Screen &t)
             x += xin;
             y += yin;
         }
+
     }
     cout<<t;
 }

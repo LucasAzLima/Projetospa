@@ -6,7 +6,7 @@
 class circulo : public figura
 {
 public:
-    circulo();
+    circulo(int _xr, int _yr, int _raio, int _fillmodeC);
     void draw(Screen &t);
     void pixel(int x, int y, Screen &t);
 };

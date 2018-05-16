@@ -6,7 +6,7 @@ class reta: public figura
 {
 
 public:
-    reta();
+    reta(int _x, int _y, int _x2, int _y2);
     void draw(Screen &t);
 
 };
